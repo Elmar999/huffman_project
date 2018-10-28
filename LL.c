@@ -9,7 +9,10 @@ LL_list *read_file(LL_list *uns_list,char *filename){
     char c;
     
     while(fscanf(fp,"%c",&c) != EOF){
-        if(uns_list == NULL){
+    	if(c == '\n'){
+    		continue;
+    	}
+        else if(uns_list == NULL){
             uns_list = cons_list(uns_list,c);
         }
         else{
